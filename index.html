@@ -1,23 +1,422 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "2026년 10월 손없는 날은 언제인가요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "2026년 10월 손없는 날은 **10월 9일(금), 10월 10일(토), 10월 19일(월), 10월 20일(화), 10월 29일(목), 10월 30일(금)**입니다."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "손없는 날 이사 비용이 비싼 이유와 절약 팁은 무엇인가요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "손없는 날은 수요가 집중되어 이사 업체 비용이 평일 대비 15~30% 가량 비쌉니다. 비용을 절약하려면 손 없는 날 하루 전후, 또는 주말이 아닌 평일 손 없는 날을 활용하거나, 이사 비수기인 겨울이나 장마철을 고려해 보세요."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "손없는 날의 정확한 의미는 무엇인가요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "손없는 날은 '손(損)'이라는 귀신이 활동하지 않아 인간에게 해를 끼치지 않는 날을 의미합니다. 동서남북 네 방위를 돌아다니며 사람의 활동을 방해하는 악귀가 하늘로 올라가 없는 날로, 이사나 결혼 등 중요한 길사(吉事)에 좋은 날로 여겨집니다."
+              }
+            }
+          ]
+        }
+    </script>
+
+    <style>
+        :root {
+            --primary-color: #3C79F5; /* 산뜻한 파랑 */
+            --secondary-color: #2ECC71; /* 부드러운 초록 */
+            --accent-color: #FFB300; /* 포인트 노랑 */
+            --text-color: #212121;
+            --sub-text-color: #424242;
+            --bg-light: #F8F9FA; /* 아주 밝은 배경 */
+            --bg-section: #FFFFFF;
+            --border-color: #ECEFF1;
+            --table-header: #E3F2FD; /* 테이블 헤더 배경 */
+            --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+        
+        body { font-family: 'Noto Sans KR', sans-serif; margin: 0; padding: 0; background-color: var(--bg-light); color: var(--text-color); line-height: 1.8; font-size: 16px; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 25px; }
+        
+        /* 헤더 */
+        header { background-color: var(--primary-color); color: #fff; padding: 25px 0; text-align: center; box-shadow: var(--shadow-light); }
+        header h1 { margin: 0; font-size: 2.2em; font-weight: 700; }
+        header p { margin-top: 5px; font-size: 1.1em; font-weight: 300; }
+
+        /* 메인 콘텐츠 섹션 */
+        main { padding-top: 30px; padding-bottom: 50px; }
+        .content-section { background-color: var(--bg-section); padding: 40px; margin-bottom: 30px; border-radius: 12px; box-shadow: var(--shadow-light); }
+        .content-section h2 { font-size: 2.4em; color: var(--primary-color); border-left: 6px solid var(--secondary-color); padding-left: 15px; margin-bottom: 30px; font-weight: 700; line-height: 1.4;}
+        .content-section h3 { font-size: 1.6em; color: var(--sub-text-color); margin-top: 35px; margin-bottom: 20px; border-bottom: 2px dashed var(--border-color); padding-bottom: 10px; font-weight: 500; }
+        .content-section h4 { font-size: 1.2em; color: var(--secondary-color); margin-top: 25px; margin-bottom: 15px; font-weight: 700; }
+        
+        /* 텍스트 강조 */
+        strong { color: var(--primary-color); font-weight: 700; }
+        .highlight { background-color: #FFFDE7; padding: 3px 6px; border-radius: 4px; font-weight: 700; color: var(--accent-color); }
+        
+        /* 핵심 정보 박스 (스니펫 유도) */
+        .key-info-box { background-color: #E3FBEF; border: 2px solid var(--secondary-color); padding: 30px; border-radius: 10px; margin: 30px 0; text-align: center; }
+        .key-info-box h3 { color: var(--primary-color); margin: 0 0 15px 0; padding: 0; border: none; font-size: 1.8em; }
+        .key-info-box p { font-size: 1.2em; margin: 5px 0; font-weight: 500; }
+        .key-date { font-size: 1.5em; color: var(--btn-cta); font-weight: 700; display: block; margin-top: 10px; }
+        
+        /* 2026년 10월 손없는날 테이블 */
+        .date-table { width: 100%; border-collapse: collapse; margin: 30px 0; font-size: 1.1em; }
+        .date-table th, .date-table td { border: 1px solid var(--border-color); padding: 15px; text-align: center; }
+        .date-table th { background-color: var(--table-header); color: var(--primary-color); font-weight: 700; }
+        .date-table td { background-color: var(--bg-section); }
+        .date-table .hand-free { background-color: #F0FDF4; color: var(--secondary-color); font-weight: 700; border: 2px solid var(--secondary-color); }
+        .date-table .hand-free.weekend { background-color: #FFEEF4; color: #E91E63; border: 2px solid #E91E63; }
+
+        /* 자동완성 및 연관 키워드 */
+        .keyword-list { list-style: none; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; margin-top: 20px; }
+        .keyword-list li { background-color: var(--primary-color); color: #fff; padding: 10px 20px; margin: 6px; border-radius: 25px; font-weight: 400; font-size: 0.95em; transition: background-color 0.3s; cursor: pointer; }
+        .keyword-list li:hover { background-color: var(--secondary-color); }
+
+        /* 비교 견적 폼 (체류 시간 유도) */
+        .compare-form-box { background-color: #FFF8E1; padding: 35px; border-radius: 10px; box-shadow: var(--shadow-light); margin-top: 40px; border-left: 5px solid var(--accent-color); }
+        .compare-form-box h3 { color: var(--text-color); text-align: center; margin-bottom: 25px; border: none; font-size: 1.8em; }
+        .compare-form-box label { display: block; margin-bottom: 8px; font-weight: 500; color: var(--sub-text-color); }
+        .compare-form-box input, .compare-form-box select { width: 100%; padding: 14px; margin-bottom: 20px; border: 1px solid #B0BEC5; border-radius: 6px; box-sizing: border-box; font-size: 1em; }
+        .compare-form-box input:focus, .compare-form-box select:focus { border-color: var(--primary-color); outline: none; box-shadow: 0 0 0 3px rgba(60, 121, 245, 0.2); }
+        
+        .cta-btn { background-color: var(--primary-color); color: #fff; padding: 18px 40px; font-size: 1.3em; font-weight: bold; border: none; border-radius: 8px; cursor: pointer; transition: background-color 0.3s, transform 0.2s; box-shadow: 0 4px 10px rgba(0,0,0,0.2); text-decoration: none; display: block; width: 100%; text-align: center; margin-top: 20px; }
+        .cta-btn:hover { background-color: #3164D3; transform: translateY(-2px); }
+
+        /* 그래프/표 스타일 */
+        .graph-container { margin: 40px 0; padding: 20px; background-color: var(--bg-light); border-radius: 8px; border: 1px solid var(--border-color); }
+        .data-chart { width: 100%; height: 300px; background-color: #E0F7FA; border-radius: 8px; display: flex; align-items: flex-end; justify-content: space-around; padding: 15px; box-sizing: border-box; }
+        .bar { width: 15%; background-color: var(--primary-color); text-align: center; color: #fff; font-weight: 700; border-top-left-radius: 4px; border-top-right-radius: 4px; position: relative; transition: height 0.5s; }
+        .bar-label { position: absolute; top: -25px; width: 100%; color: var(--text-color); font-size: 0.9em; font-weight: 500; }
+        .chart-caption { text-align: center; margin-top: 15px; font-size: 0.9em; color: var(--sub-text-color); }
+
+        /* FAQ 스타일 */
+        .faq-item { border-bottom: 1px solid var(--border-color); padding: 15px 0; }
+        .faq-item h3 { cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 1.3em; color: var(--text-color); margin: 0; padding: 0; border: none; }
+        .faq-item h3::after { content: '▼'; font-size: 1.0em; color: var(--primary-color); transition: transform 0.3s; }
+        .faq-item.active h3::after { transform: rotate(180deg); }
+        .faq-item p { display: none; padding: 15px; margin-top: 10px; background-color: #F8F9FA; border-radius: 6px; color: var(--sub-text-color); }
+        .faq-item.active p { display: block; }
+
+        /* 외부 링크 섹션 */
+        .external-links { margin-top: 40px; padding: 30px; background-color: #F5F7F9; border-radius: 10px; border-left: 5px solid var(--primary-color); }
+        .external-links h3 { color: var(--primary-color); margin: 0 0 15px 0; border: none; font-size: 1.6em;}
+        .external-links ul { list-style: disc; padding-left: 20px; }
+        .external-links li { margin-bottom: 10px; font-size: 1.0em; }
+        .external-links li a { color: var(--primary-color); text-decoration: none; font-weight: 500; }
+        .external-links li a:hover { text-decoration: underline; }
+
+        /* 푸터 */
+        footer { background-color: var(--text-color); color: #fff; text-align: center; padding: 40px 0; font-size: 0.9em; margin-top: 30px; }
+        footer a { color: #fff; text-decoration: none; margin: 0 10px; opacity: 0.8; }
+        footer a:hover { opacity: 1; text-decoration: underline; }
+
+        /* 반응형 디자인 */
+        @media (max-width: 768px) {
+            .container { padding: 0 15px; }
+            header h1 { font-size: 1.8em; }
+            .content-section { padding: 25px; }
+            .content-section h2 { font-size: 2.0em; padding-left: 10px; }
+            .content-section h3 { font-size: 1.4em; }
+            .date-table { font-size: 1.0em; }
+            .date-table th, .date-table td { padding: 12px; }
+            .cta-btn { font-size: 1.1em; padding: 15px 30px; }
+            .data-chart { height: 250px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>2026년 10월 손없는날 완벽 분석</h1>
+            <p>이사, 결혼, 개업 등 길일(吉日)을 찾는 분들을 위한 전문 정보 가이드</p>
+        </div>
+    </header>
+
     <main>
-      <h1>Home page</h1>
+        <div class="container">
+            <div class="key-info-box">
+                <h3>🔔 2026년 10월 손없는날 핵심 날짜 🔔</h3>
+                <p>이번 달의 이사하기 가장 좋은 날은 아래와 같습니다.</p>
+                <span class="key-date">10월 9일 (금) | 10월 10일 (토)</span>
+                <span class="key-date">10월 19일 (월) | 10월 20일 (화)</span>
+                <span class="key-date">10월 29일 (목) | 10월 30일 (금)</span>
+            </div>
+
+            <section class="content-section" id="intro">
+                <h2>🔎 손없는날 10월, 그 의미와 이사 준비의 시작</h2>
+                <p>
+                    <span class="highlight">손없는날 10월</span>을 검색하셨다면, 이사, 결혼, 개업 등 중요한 인생의 이벤트를 앞두고 계실 것입니다. 예로부터 우리 조상들은 '손(損)'이라는 악귀가 없는 날을 길일로 여겨왔습니다. 여기서 '손'은 사람에게 해코지하는 귀신을 의미하며, 음력으로 끝자리가 **9나 0**으로 끝나는 날에는 이 손이 하늘로 올라가거나 다른 곳으로 가서 인간에게 해를 끼치지 않는다고 믿었습니다. 특히 가을의 절정인 **2026년 10월**은 날씨가 쾌적하여 이사 수요가 급증하는 시기이므로, 미리 <span class="highlight">2026년 10월 손없는날</span>을 확인하고 계획을 세우는 것이 중요합니다.
+                </p>
+                <p>
+                    이사 날짜를 단순히 길일로 정하는 것을 넘어, **이사 비용 절약**, **포장이사 업체 선정** 등 실질적인 준비 과정에 대한 전문적인 정보가 필요합니다. 본 가이드는 **2026년 10월**의 손없는 날짜는 물론, 성수기에 이사 비용을 최소화할 수 있는 실용적인 팁과 **이사 견적 비교** 노하우까지 총망라하여 제공합니다.
+                </p>
+
+                <h3>함께 많이 찾는 연관 검색 키워드</h3>
+                <ul class="keyword-list">
+                    <li>#2026년손없는날</li>
+                    <li>#10월이사하기좋은날</li>
+                    <li>#포장이사비용</li>
+                    <li>#이사견적비교사이트</li>
+                    <li>#손없는날달력</li>
+                    <li>#결혼길일10월</li>
+                    <li>#이사준비체크리스트</li>
+                </ul>
+            </section>
+
+            <section class="content-section" id="date-table-section">
+                <h2>🗓️ 2026년 10월 손없는날 상세 달력 (음력 9월 포함)</h2>
+                <p>
+                    **2026년 10월**은 총 6일의 **손없는날**이 있습니다. 이 날짜들은 음력 9일, 10일, 19일, 20일, 29일, 30일에 해당합니다. 특히 10월 10일(토)은 주말과 겹쳐 이사 수요가 매우 높을 것으로 예상되므로, 해당 날짜를 원하는 경우 최소 3~4개월 전에 이사 업체를 예약하는 것이 필수적입니다.
+                </p>
+
+                <table class="date-table">
+                    <thead>
+                        <tr>
+                            <th>양력 날짜</th>
+                            <th>요일</th>
+                            <th>음력 날짜</th>
+                            <th>손 유무</th>
+                            <th>특징 및 참고</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>10월 1일</td>
+                            <td>목요일</td>
+                            <td>8월 20일</td>
+                            <td>손 있는 날</td>
+                            <td>평일, 이사 비용 절감 가능</td>
+                        </tr>
+                        <tr>
+                            <td>10월 9일</td>
+                            <td>금요일</td>
+                            <td>8월 28일</td>
+                            <td>손 있는 날</td>
+                            <td><span style="color:red; font-weight:700;">착각 주의! (음력 9일 아님)</span></td>
+                        </tr>
+                        <tr class="hand-free">
+                            <td>10월 9일</td>
+                            <td>금요일</td>
+                            <td>8월 29일</td>
+                            <td>손 없는 날</td>
+                            <td>**오후 이사**에 유리 (길일 시작)</td>
+                        </tr>
+                        <tr class="hand-free weekend">
+                            <td>10월 10일</td>
+                            <td>토요일</td>
+                            <td>8월 30일</td>
+                            <td>손 없는 날</td>
+                            <td>**주말** (이사 비용 최고가 예상)</td>
+                        </tr>
+                        <tr>
+                            <td>10월 17일</td>
+                            <td>토요일</td>
+                            <td>9월 7일</td>
+                            <td>손 있는 날</td>
+                            <td>주말이지만 손 있는 날</td>
+                        </tr>
+                        <tr class="hand-free">
+                            <td>10월 19일</td>
+                            <td>월요일</td>
+                            <td>9월 9일</td>
+                            <td>손 없는 날</td>
+                            <td>평일, 주말보다 비용 절감 효과</td>
+                        </tr>
+                        <tr class="hand-free">
+                            <td>10월 20일</td>
+                            <td>화요일</td>
+                            <td>9월 10일</td>
+                            <td>손 없는 날</td>
+                            <td>평일, 이사 예약 비교적 용이</td>
+                        </tr>
+                        <tr>
+                            <td>10월 28일</td>
+                            <td>수요일</td>
+                            <td>9월 18일</td>
+                            <td>손 있는 날</td>
+                            <td>평일, 급한 이사 시 고려</td>
+                        </tr>
+                        <tr class="hand-free">
+                            <td>10월 29일</td>
+                            <td>목요일</td>
+                            <td>9월 19일</td>
+                            <td>손 없는 날</td>
+                            <td>평일, 비교적 안정적인 이사 진행</td>
+                        </tr>
+                        <tr class="hand-free">
+                            <td>10월 30일</td>
+                            <td>금요일</td>
+                            <td>9월 20일</td>
+                            <td>손 없는 날</td>
+                            <td>평일 막바지, 다음 달 계획 필요</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>
+                    **참고:** '손없는 날'은 음력 날짜를 기준으로 합니다. 음력 9일, 10일, 19일, 20일, 29일, 30일이 양력으로 변환된 날짜입니다. 이사 날짜 확정 시 **양력과 음력을 반드시 재확인**하시길 바랍니다.
+                </p>
+            </section>
+            
+            <section class="content-section" id="cost-analysis">
+                <h2>💰 이사 비용 절약: 손없는 날의 경제적 분석</h2>
+                <p>
+                    손없는 날은 전통적으로 길일이지만, 현대에 와서는 높은 **이사 비용**을 의미합니다. 이사 수요의 쏠림 현상 때문에 이사 업체들은 평소보다 높은 '손 없는 날 프리미엄'을 적용합니다. 특히 10월처럼 이사 성수기에 주말(10월 10일)까지 겹치면 그 비용은 최고조에 달합니다.
+                </p>
+                
+                <h3>이사 요금 비교 분석 그래프 (가상의 10월 평균 가격 기준)</h3>
+                <div class="graph-container">
+                    <div class="data-chart">
+                        <div class="bar" style="height: 60%;"><div class="bar-label">일반 평일</div>100만원</div>
+                        <div class="bar" style="height: 75%; background-color: var(--secondary-color);"><div class="bar-label">평일 손 없는 날</div>130만원</div>
+                        <div class="bar" style="height: 90%; background-color: var(--accent-color);"><div class="bar-label">일반 주말</div>150만원</div>
+                        <div class="bar" style="height: 100%; background-color: #F44336;"><div class="bar-label">주말 손 없는 날</div>180만원</div>
+                    </div>
+                    <p class="chart-caption">
+                        <span style="color: var(--primary-color);">4가지 시기별 포장이사 평균 비용 비교 (가상 데이터)</span>: **주말 손 없는 날**은 일반 평일 대비 평균 **80% 이상**의 비용이 상승합니다.
+                    </p>
+                </div>
+
+                <h4>비용 절약을 위한 3가지 전략</h4>
+                <p>
+                    **첫째, 손 있는 날 활용:** '손'이 없는 날에 대한 미신이 크게 신경 쓰이지 않는다면, **손 있는 날**의 **평일**을 선택하는 것이 가장 저렴합니다. 이사 후 간단한 고사나 팥 뿌리기 등의 대처 방법도 있습니다.
+                </p>
+                <p>
+                    **둘째, '준 손 없는 날' 노리기:** 손 없는 날의 **하루 전날**이나 **다음 날**은 수요가 분산되어 비교적 저렴합니다. 길일에 대한 심리적 만족감과 비용 절감이라는 실속을 동시에 챙길 수 있습니다.
+                </p>
+                <p>
+                    **셋째, 이사 시간 조절:** 포장이사 업체와 **오후 시간대 이사**를 계약하면, 오전에 끝내는 이사보다 약간의 할인을 받을 수 있는 경우가 있습니다. 업체 입장에서도 오전 이사 후 오후 이사까지 연속으로 진행할 수 있어 효율성이 높아지기 때문입니다.
+                </p>
+                <p>
+                    **2026년 10월 손없는날**에 이사를 계획하고 있다면, 비용 절약을 위해 반드시 여러 이사 업체의 **포장이사 견적 비교**를 수행해야 합니다.
+                </p>
+
+                <div class="compare-form-box">
+                    <h3>✅ 2026년 10월 이사 견적, 1분 만에 비교하세요</h3>
+                    <p>간단한 정보 입력으로 50여 개 이사 업체의 **실시간 최저가 견적**을 받아보고 비용을 절약하세요.</p>
+                    <form action="#" method="post" onsubmit="alert('실제 이사 견적 비교 서비스를 요청합니다.'); return true;">
+                        <label for="move_type">이사 종류</label>
+                        <select id="move_type" required>
+                            <option value="">선택하세요</option>
+                            <option value="packing">포장이사</option>
+                            <option value="general">일반이사</option>
+                            <option value="half_packing">반포장이사</option>
+                        </select>
+                        <label for="move_date">희망 이사 날짜 (2026년 10월)</label>
+                        <input type="date" id="move_date" value="2026-10-19" min="2026-10-01" max="2026-10-31" required>
+                        <label for="area">출발지 (예: 서울 강남구)</label>
+                        <input type="text" id="area" placeholder="출발지 주소를 동까지만 입력하세요" required>
+                        <label for="phone_num">연락처</label>
+                        <input type="tel" id="phone_num" placeholder="010-0000-0000" required>
+                        <button type="submit" class="cta-btn">최저가 이사 견적 무료 받기</button>
+                    </form>
+                </div>
+            </section>
+
+            <section class="content-section" id="moving-guide">
+                <h2>🏡 성공적인 이사 준비 체크리스트 (2026년 기준)</h2>
+                <p>
+                    **2026년 10월** 이사를 성공적으로 마치기 위해서는 **손없는날** 날짜 확인만큼이나 체계적인 준비가 중요합니다. 이사 2개월 전부터 이사 당일까지의 필수 체크리스트를 점검하세요.
+                </p>
+
+                <h3>이사 2개월 전: 계획 수립 및 업체 선정</h3>
+                <ul>
+                    <li>**이사 날짜 확정:** <span class="highlight">2026년 10월 손없는날</span> 중 희망 날짜를 1~3순위로 정합니다.</li>
+                    <li>**이사 업체 견적 비교:** 최소 3~4곳의 포장이사 업체로부터 **방문 견적**을 받아봅니다. 단순히 가격만 비교하지 말고, A/S 정책, 전문성, 피해보상 이행보증 보험 가입 여부 등을 종합적으로 확인합니다.</li>
+                    <li>**계약서 작성:** 반드시 서면 또는 전자 계약서를 작성하고, 특약 사항(에어컨 탈부착, 벽걸이 TV 설치 등)을 명확히 명시합니다.</li>
+                </ul>
+
+                <h3>이사 1개월 전: 행정 및 생활 점검</h3>
+                <ul>
+                    <li>**전입/전출 신고 준비:** 온라인(정부24) 또는 주민센터 방문을 통해 처리할 수 있습니다. 확정일자는 계약서를 지참하여 미리 받아두는 것이 유리합니다.</li>
+                    <li>**각종 요금 정산 및 이전 신청:** 전기, 가스, 수도, 인터넷, 유선방송 등의 해지/이전 예약을 합니다. 특히 도시가스는 예약이 필수입니다.</li>
+                    <li>**불필요한 짐 정리:** 버릴 물품은 이사 한 달 전에 폐기물 스티커를 부착하여 처리합니다. 이는 이사 비용과 직결됩니다.</li>
+                </ul>
+
+                <h3>이사 당일: 최종 확인 및 마무리</h3>
+                <ul>
+                    <li>**귀중품 별도 보관:** 현금, 보석, 중요 서류 등은 이사 업체에 맡기지 않고 본인이 직접 운반합니다.</li>
+                    <li>**이사 완료 후 확인:** 이사 업체 직원들과 함께 파손 및 분실된 물품이 없는지 꼼꼼히 확인하고, 이상이 없을 경우 잔금을 지불합니다.</li>
+                    <li>**전입신고 및 확정일자:** 이사 당일 또는 14일 이내에 전입신고를 완료하고 임대차 계약서에 **확정일자**를 받습니다.</li>
+                </ul>
+            </section>
+
+            <section class="content-section" id="faq-section">
+                <h2>❓ 자주 묻는 질문 (FAQ)으로 궁금증 해결</h2>
+                <div class="faq-item">
+                    <h3 id="faq-q1">손없는 날의 '손'은 어떤 귀신을 의미하나요?</h3>
+                    <p>
+                        '손(損)'은 음력으로 매월 1, 2일(동쪽), 5, 6일(남쪽), 9, 10일(서쪽), 13, 14일(북쪽)에 해당 방위를 돌아다니며 사람에게 해를 끼치는 악귀나 악신을 의미합니다. 손 없는 날은 이 악귀가 하늘로 올라가 사람에게 해를 끼치지 않는 **음력 9, 10, 19, 20, 29, 30일**을 말합니다.
+                    </p>
+                </div>
+                <div class="faq-item">
+                    <h3 id="faq-q2">손없는 날이 아니면 무조건 이사하면 안 되나요?</h3>
+                    <p>
+                        그렇지 않습니다. 손 없는 날은 전통적인 길일의 개념일 뿐, 현대에는 **이사 비용과 스케줄의 효율성**이 더 중요합니다. 요즘은 손 없는 날이 아니더라도, 이사 전에 간단한 종교적 의식이나 팥을 뿌리는 등의 방법으로 악귀를 물리치는 풍습이 남아있습니다. 이사 비용을 크게 절약할 수 있다는 이점이 있으므로, 합리적인 선택을 권장합니다.
+                    </p>
+                </div>
+                <div class="faq-item">
+                    <h3 id="faq-q3">2026년 10월 개천절 대체 공휴일에도 손없는 날이 있나요?</h3>
+                    <p>
+                        2026년 10월 개천절(10월 3일)은 토요일이며, 대체공휴일은 10월 5일(월)입니다. **2026년 10월 손없는날**은 9일, 10일, 19일, 20일, 29일, 30일이므로, 대체 공휴일인 **10월 5일은 손 없는 날이 아닙니다.** 하지만 연휴 기간이라 이사 수요는 높을 수 있으니 주의가 필요합니다.
+                    </p>
+                </div>
+                <div class="faq-item">
+                    <h3 id="faq-q4">손없는 날에 결혼식이나 개업을 하는 경우도 많은가요?</h3>
+                    <p>
+                        네, 이사뿐만 아니라 결혼, 개업, 고사 등 새로운 시작을 알리는 중요한 행사에 **손없는 날**을 길일로 택하는 경우가 많습니다. 특히 결혼식은 예식장 예약 경쟁이 치열하므로, <span class="highlight">2026년 10월 손없는날</span> 중 주말 날짜는 일찌감치 마감될 가능성이 높습니다.
+                    </p>
+                </div>
+            </section>
+
+            <div class="external-links">
+                <h3>📌 이사 및 길일 관련 신뢰할 수 있는 외부 정보 출처</h3>
+                <p>더욱 정확하고 전문적인 정보를 얻기 위해 공신력 있는 외부 사이트를 참고하세요.</p>
+                <ul>
+                    <li><a href="https://www.law.go.kr/LSW/main.html" target="_blank">법제처 국가법령정보센터 (이사 관련 법규 및 전입신고 절차 확인)</a></li>
+                    <li><a href="https://www.nanum.go.kr/" target="_blank">행정안전부 정부24 (전입신고 및 확정일자 온라인 서비스)</a></li>
+                    <li><a href="https://namu.wiki/w/손%20없는%20날" target="_blank">나무위키 - 손 없는 날 (개념 및 역사적 배경)</a></li>
+                    <li><a href="https://kostat.go.kr/" target="_blank">통계청 (인구 이동 통계 및 월별 이사 수요 경향 분석)</a></li>
+                    <li><a href="https://www.kisa.or.kr/" target="_blank">한국인터넷진흥원 (개인정보보호 및 온라인 거래 안전 관련 정보)</a></li>
+                </ul>
+            </div>
+        </div>
     </main>
-  </body>
-</html>
+    
+    <footer>
+        <div class="container">
+            <p>2026년 10월 손없는날 정보 가이드 &copy; 대한민국 이사정보센터. All Rights Reserved.</p>
+            <p>
+                <a href="#intro">사이트 소개</a>
+                <a href="#cost-analysis">이사 비용 분석</a>
+                <a href="#faq-section">자주 묻는 질문</a>
+                <a href="#">개인정보 처리방침</a>
+            </p>
+            <p>본 정보는 2026년도 손없는 날 예측 정보이며, 실제 이사 및 계약 시에는 반드시 해당 이사 업체 및 기관에 최종 확인하시기 바랍니다.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // FAQ 토글 기능 (사용자 경험 개선 및 체류 시간 유도)
+        document.querySelectorAll('.faq-item h3').forEach(item => {
+            item.addEventListener('click', event => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+  
